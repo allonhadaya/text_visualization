@@ -1,0 +1,9 @@
+A one day pet project for visualizing something in the terminal.
+
+histogram.py - draws ascii histograms
+strings_histogram - uses strings and histogram.py to draw a distribution of the length of strings in a file
+
+try:
+
+    ./strings_histogram ls
+    ./strings_histogram sh
