@@ -15,6 +15,7 @@ Options:
 from docopt import docopt
 import sys
 import math
+import itertools
 
 if __name__ == '__main__':
 
@@ -30,6 +31,9 @@ if __name__ == '__main__':
                 result = []
         if len(result) > 0:
             yield average(result)
+
+    def cycle_to_length(symbol, length):
+        return ''.join(itertools.islice(itertools.cycle(symbol), length))
 
     arguments = docopt(__doc__, version='1.0')
 
@@ -51,7 +55,7 @@ if __name__ == '__main__':
     width_factor = int(arguments['--width']) / largest_number
 
     numbers = (width_factor * number for number in numbers)
-    symbols = (arguments['--symbol'] * int(number) for number in numbers)
+    symbols = (cycle_to_length(arguments['--symbol'], int(number)) for number in numbers)
 
     for s in symbols:
         print s
