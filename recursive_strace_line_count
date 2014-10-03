@@ -1,0 +1,9 @@
+#!/bin/sh
+
+strace 2>&1 | wc -l
+strace strace 2>&1 | wc -l
+strace strace strace 2>&1 | wc -l
+strace strace strace strace 2>&1 | wc -l
+strace strace strace strace strace 2>&1 | wc -l
+strace strace strace strace strace strace 2>&1 | wc -l # takes a long ass time
+
